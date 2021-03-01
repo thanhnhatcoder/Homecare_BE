@@ -3,7 +3,6 @@ package com.homecare.Homecare.service;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,13 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.homecare.Homecare.convert.ComboConvert;
 import com.homecare.Homecare.dto.ComboDTO;
 import com.homecare.Homecare.entity.ComboEntity;
-import com.homecare.Homecare.entity.UserEntity;
 import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.repository.ComboRepository;
 
-import lombok.Setter;
 
 @Service
 public class ComboService {
