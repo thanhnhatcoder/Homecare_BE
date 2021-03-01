@@ -26,12 +26,6 @@ public class UserController {
 
 	@Autowired
 	private UserService userService ;
-	
-	
-//@GetMapping("/user")
-//public List<UserEntity> getAllUser() {
-//	return repository.findAll();
-//}
 @GetMapping("/user/{id}")
 public SuccessResponse<UserDTO> findByID(@PathVariable String id) {
 	return userService.findById(id) ;

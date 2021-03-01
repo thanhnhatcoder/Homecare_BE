@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "combo")
-public class Combo {
+public class ComboEntity {
 
 	@Id
 	private String id ;

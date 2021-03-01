@@ -23,7 +23,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
-	private UserConvert UserConvert;
+	private UserConvert userConvert;
 
 @Transactional
 public SuccessResponse edit(UserDTO userDTO) {
@@ -33,7 +33,7 @@ public SuccessResponse edit(UserDTO userDTO) {
 	UserEntity userEntity = optionalUserEntity.orElseThrow(() -> new BadRequestException("ID not correct"));
 	userEntity.setUsername(userDTO.getUsername());
 	userEntity.setPassword(userDTO.getPassword());
-	UserConvert.entityToDTO(userRepository.save(userEntity));
+	userConvert.entityToDTO(userRepository.save(userEntity));
 }
 	return new SuccessResponse();
 }
@@ -47,7 +47,7 @@ public SuccessResponse save(UserDTO userDTO) {
         UUID id = UUID.randomUUID();
         userDTO.setId(id.toString());
         userEntity.setId(userDTO.getId());
-        userEntity = UserConvert.dtoToEntity(userDTO);
+        userEntity = userConvert.dtoToEntity(userDTO);
         userRepository.save(userEntity);
     }
     SuccessResponse successResponse = new SuccessResponse();
@@ -58,7 +58,7 @@ public SuccessResponse save(UserDTO userDTO) {
 	public SuccessResponse findById(String idUser) {
 		Optional<UserEntity> optionalUser = userRepository.findById(idUser);
 		if (optionalUser.isPresent()) {
-			return new SuccessResponse(this.UserConvert.entityToDTO(optionalUser.get()));
+			return new SuccessResponse(this.userConvert.entityToDTO(optionalUser.get()));
 		}
 		return new SuccessResponse();
 	}

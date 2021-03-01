@@ -1,5 +1,37 @@
 package com.homecare.Homecare.Controller;
 
-public class ComboController {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.homecare.Homecare.dto.ComboDTO;
+import com.homecare.Homecare.reponse.success.SuccessResponse;
+import com.homecare.Homecare.service.ComboService;
+
+@RestController
+@RequestMapping("api/v1")
+public class ComboController {
+	@Autowired
+	private ComboService comboService;
+
+	@GetMapping("/combo")
+	public SuccessResponse<ComboDTO> findAll() {
+		return comboService.findAllCombo();
+	}
+
+	@GetMapping("/combo/{id}")
+	public SuccessResponse<ComboDTO> findByID(@PathVariable String id) {
+		return comboService.findById(id);
+
+	}
+
+	@PostMapping("/add/combo")
+	public SuccessResponse save(@RequestBody ComboDTO comboDTO) {
+		return comboService.save(comboDTO);
+	}
 }
