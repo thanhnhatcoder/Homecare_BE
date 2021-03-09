@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.homecare.Homecare.convert.CustomerConvert;
 import com.homecare.Homecare.dto.CustomerDTO;
-import com.homecare.Homecare.dto.UserDTO;
+
 import com.homecare.Homecare.entity.CustomerEntity;
-import com.homecare.Homecare.entity.UserEntity;
+
 import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;
 import com.homecare.Homecare.reponse.success.SuccessResponse;

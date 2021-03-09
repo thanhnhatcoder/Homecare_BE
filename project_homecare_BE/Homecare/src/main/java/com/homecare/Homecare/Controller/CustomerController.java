@@ -14,17 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homecare.Homecare.dto.CustomerDTO;
-import com.homecare.Homecare.dto.UserDTO;
-import com.homecare.Homecare.entity.UserEntity;
+
 import com.homecare.Homecare.reponse.success.SuccessResponse;
-import com.homecare.Homecare.repository.UserRepository;
+
 import com.homecare.Homecare.service.CustomerService;
-import com.homecare.Homecare.service.UserService;
+
 
 @RestController
 @RequestMapping("/api/v1")
 public class CustomerController {
-
 	@Autowired
 	private CustomerService customerService ;
 @GetMapping("/customer/{id}")

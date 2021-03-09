@@ -6,8 +6,6 @@ import org.springframework.boot.SpringApplication;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.homecare.Homecare.entity.UserEntity;
-import com.homecare.Homecare.repository.UserRepository;
 
 
 @SpringBootApplication
