@@ -14,17 +14,21 @@ public class CustomerConvert {
 		customerEntity.setId(customerDTO.getId());
 		customerEntity.setName(customerDTO.getName());
 		customerEntity.setPhone(customerDTO.getPhone());
+		customerEntity.setId_account(customerDTO.getId_account());
+		customerEntity.setPassword(customerDTO.getPassword());
 		customerEntity.setGender(customerDTO.isGender());
-		customerEntity.setAddress(customerDTO.getAddress());
+		customerEntity.setEmail(customerDTO.getEmail());
 		return customerEntity ;
 	}
 	public CustomerDTO entitytoDTO(CustomerEntity customerEntity) {
 		CustomerDTO customerDTO = new CustomerDTO() ;
 		customerDTO.setId(customerEntity.getId());
 		customerDTO.setName(customerEntity.getName());
+		customerDTO.setId_account(customerEntity.getId_account());
+		customerDTO.setPassword(customerEntity.getPassword());
 		customerDTO.setPhone(customerEntity.getPhone());
 		customerDTO.setGender(customerEntity.isGender());
-		customerDTO.setAddress(customerEntity.getAddress());
+		customerDTO.setEmail(customerEntity.getEmail());
 		return customerDTO ;
 	}
 }

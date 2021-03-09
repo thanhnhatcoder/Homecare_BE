@@ -1,5 +1,6 @@
 package com.homecare.Homecare.entity;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
@@ -23,7 +24,7 @@ public class CustomerEntity {
 	private String phone;
 	
 	@NotBlank
-	private String address;
+	private String email;
 	
 	@NotBlank
 	private boolean gender;
