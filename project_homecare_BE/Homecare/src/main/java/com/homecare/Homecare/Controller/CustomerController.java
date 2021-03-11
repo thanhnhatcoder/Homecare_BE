@@ -38,7 +38,7 @@ public SuccessResponse addUser(@RequestBody CustomerDTO customerDTO) {
 	return this.customerService.save(customerDTO) ;
 }
 @PutMapping("/{id}/edit/customer")
-public SuccessResponse editProfessional(@RequestBody CustomerDTO customerDto) {
+public SuccessResponse edit(@RequestBody CustomerDTO customerDto) {
     return this.customerService.edit(customerDto);
 }
 }

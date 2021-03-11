@@ -44,7 +44,7 @@ public class CustomerService {
 	@Transactional
 	public SuccessResponse save(CustomerDTO customerDTO) {
 	    CustomerEntity customerEntity = new CustomerEntity();
-	    if (customerEntity.getId_account() == null || customerEntity.getPassword() == null ) {
+	    if (customerDTO.getId_account() == null || customerDTO.getPassword() == null ) {
 	        throw new BadRequestException("Invalid input");
 	    }
 	    else {
