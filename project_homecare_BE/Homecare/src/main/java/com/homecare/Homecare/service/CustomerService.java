@@ -31,10 +31,9 @@ public class CustomerService {
 		{
 		Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findById(customerDTO.getId());
 		CustomerEntity customerEntity = optionalCustomerEntity.orElseThrow(() -> new BadRequestException("ID not correct"));
-		customerEntity.setId_account(customerDTO.getId_account());
 		customerEntity.setPassword(customerDTO.getPassword());
 		customerEntity.setName(customerDTO.getName());
-		customerEntity.setGender(customerDTO.isGender());
+		customerEntity.setGender(customerDTO.getGender());
 		customerEntity.setEmail(customerDTO.getEmail());
 		customerEntity.setPhone(customerDTO.getPhone());
 		customerConvert.entitytoDTO(customerRepository.save(customerEntity));
@@ -44,18 +43,17 @@ public class CustomerService {
 	@Transactional
 	public SuccessResponse save(CustomerDTO customerDTO) {
 	    CustomerEntity customerEntity = new CustomerEntity();
-	    if (customerDTO.getId_account() == null || customerDTO.getPassword() == null ) {
+	    if ( customerDTO.getPassword() == null ) {
 	        throw new BadRequestException("Invalid input");
 	    }
 	    else {
 	        UUID id = UUID.randomUUID();
 	        customerDTO.setId(id.toString());
 	        customerEntity.setId(customerDTO.getId());
-	        customerEntity.setId_account(customerDTO.getId_account());
 	        customerEntity.setPassword(customerDTO.getPassword());
 	        customerEntity.setName(customerDTO.getName());
 	        customerEntity.setEmail(customerDTO.getEmail());
-	        customerEntity.setGender(customerDTO.isGender());
+	        customerEntity.setGender(customerDTO.getGender());
 	        customerEntity.setPhone(customerDTO.getPhone());
 	        customerEntity = customerConvert.dtotoEntity(customerDTO);
 	        customerRepository.save(customerEntity);
@@ -64,7 +62,14 @@ public class CustomerService {
 	    successResponse.setCode(201);
 	    return successResponse;
 	}
-
+	public SuccessResponse searchLogin(String email,String password) {
+	
+		
+		SuccessResponse successResponse = new SuccessResponse();
+		successResponse.setCode(201);
+		return successResponse;
+	}
+	
 		public SuccessResponse findById(String idCustomer) {
 			Optional<CustomerEntity> optionalCustomer = customerRepository.findById(idCustomer);
 			if (optionalCustomer.isPresent()) {

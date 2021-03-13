@@ -13,6 +13,7 @@ public class ComboDTO {
 	private String id ;
 	private String name ;
 	private String price ;
+	private String image ;
 	private String time ;
 	private String information ;
 }

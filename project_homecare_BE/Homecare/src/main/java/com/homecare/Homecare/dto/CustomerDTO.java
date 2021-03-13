@@ -16,7 +16,6 @@ public class CustomerDTO {
 	private String name ;
 	private String phone ;
 	private String email ;
-	private boolean gender ;
-	private String id_account ;
+	private String gender ;
 	private String password ; 
 }

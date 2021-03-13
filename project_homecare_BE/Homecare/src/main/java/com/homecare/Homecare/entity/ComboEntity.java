@@ -1,5 +1,7 @@
 package com.homecare.Homecare.entity;
 
+import java.awt.Image;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -26,6 +28,9 @@ public class ComboEntity {
 
 	@NotBlank
 	private String price;
+	
+	@NotBlank
+	private String image ;
 	
 	@NotBlank
 	private String time ;

@@ -13,6 +13,7 @@ public class ComboConvert {
 		comboEntity.setName(comboDTO.getName());
 		comboEntity.setPrice(comboDTO.getPrice());
 		comboEntity.setTime(comboDTO.getTime());
+		comboEntity.setImage(comboDTO.getImage());
 		comboEntity.setInformation(comboDTO.getInformation());
 		return comboEntity ;
 	}
@@ -21,6 +22,7 @@ public class ComboConvert {
 		comboDTO.setId(comboEntity.getId());
 		comboDTO.setName(comboEntity.getName());
 		comboDTO.setPrice(comboEntity.getPrice());
+		comboDTO.setImage(comboEntity.getImage());
 		comboDTO.setTime(comboEntity.getTime());
 		comboDTO.setInformation(comboEntity.getInformation());
 		return comboDTO ;

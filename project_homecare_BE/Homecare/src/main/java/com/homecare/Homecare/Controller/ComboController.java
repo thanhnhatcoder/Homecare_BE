@@ -5,11 +5,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.tags.EditorAwareTag;
 
 import com.homecare.Homecare.dto.ComboDTO;
+import com.homecare.Homecare.dto.CustomerDTO;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.service.ComboService;
 
@@ -23,7 +26,12 @@ public class ComboController {
 	public SuccessResponse<ComboDTO> findAll() {
 		return comboService.findAllCombo();
 	}
-
+	
+	@PutMapping("/{id}/edit/combo")
+	public SuccessResponse<ComboDTO> edit(@RequestBody ComboDTO comboDTO) {
+	    return this.comboService.edit(comboDTO);
+	} 
+	
 	@GetMapping("/combo/{id}")
 	public SuccessResponse<ComboDTO> findByID(@PathVariable String id) {
 		return comboService.findById(id);

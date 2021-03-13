@@ -33,6 +33,7 @@ public class ComboService {
 			comboEntity.setName(comboDTO.getName());
 			comboEntity.setPrice(comboDTO.getPrice());
 			comboEntity.setId(comboDTO.getId());
+			comboEntity.setImage(comboDTO.getImage());
 			comboEntity.setTime(comboDTO.getTime());
 			comboEntity.setInformation(comboDTO.getInformation());
 			comboConvert.entitytoDTO(comboRepository.save(comboEntity));
@@ -50,6 +51,7 @@ public class ComboService {
 			UUID id = UUID.randomUUID();
 			comboDTO.setId(id.toString());
 			comboEntity.setName(comboDTO.getName());
+			comboEntity.setImage(comboDTO.getImage());
 			comboEntity.setPrice(comboDTO.getPrice());
 			comboEntity.setTime(comboDTO.getTime());
 			comboEntity.setInformation(comboDTO.getInformation());

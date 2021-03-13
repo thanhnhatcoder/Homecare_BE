@@ -27,10 +27,7 @@ public class CustomerEntity {
 	private String email;
 	
 	@NotBlank
-	private boolean gender;
-	
-	@NotBlank
-	private String id_account;
+	private String gender;
 	
 	@NotBlank
 	private String password;
