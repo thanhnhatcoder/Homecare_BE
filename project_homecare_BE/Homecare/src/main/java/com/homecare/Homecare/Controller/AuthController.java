@@ -31,7 +31,7 @@ import com.homecare.Homecare.security.JwtUtils;
 import com.homecare.Homecare.service.UserDetailsImpl;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/v1")
 public class AuthController {
 	@Autowired
 	AuthenticationManager authenticationManager;
