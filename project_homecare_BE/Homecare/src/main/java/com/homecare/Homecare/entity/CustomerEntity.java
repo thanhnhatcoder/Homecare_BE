@@ -1,9 +1,13 @@
 package com.homecare.Homecare.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +28,7 @@ public class CustomerEntity {
 	private String phone;
 	
 	@NotBlank
+	@Email
 	private String email;
 	
 	@NotBlank
@@ -31,4 +36,7 @@ public class CustomerEntity {
 	
 	@NotBlank
 	private String password;
+	
+	@DBRef
+	  private Set<Role> roles = new HashSet<>();
 }
