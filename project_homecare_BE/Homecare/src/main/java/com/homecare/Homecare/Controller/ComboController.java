@@ -1,7 +1,8 @@
 package com.homecare.Homecare.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,13 +10,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.tags.EditorAwareTag;
 
 import com.homecare.Homecare.dto.ComboDTO;
-import com.homecare.Homecare.dto.CustomerDTO;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.service.ComboService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("api/v1")
 public class ComboController {
@@ -28,6 +28,7 @@ public class ComboController {
 	}
 	
 	@PutMapping("/{id}/edit/combo")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public SuccessResponse<ComboDTO> edit(@RequestBody ComboDTO comboDTO) {
 	    return this.comboService.edit(comboDTO);
 	} 
@@ -39,6 +40,7 @@ public class ComboController {
 	}
 
 	@PostMapping("/add/combo")
+	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public SuccessResponse save(@RequestBody ComboDTO comboDTO) {
 		return comboService.save(comboDTO);
 	}
