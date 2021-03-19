@@ -9,9 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.homecare.Homecare.entity.CustomerEntity;
+import com.homecare.Homecare.entity.EmployeeEntity;
 import com.homecare.Homecare.entity.User;
-import com.homecare.Homecare.repository.CustomerRepository;
+import com.homecare.Homecare.repository.EmployeeRepository;
 import com.homecare.Homecare.repository.UserRepository;
 
 @Service

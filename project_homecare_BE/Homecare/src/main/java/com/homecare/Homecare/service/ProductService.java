@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.homecare.Homecare.convert.ProductConvert;
-import com.homecare.Homecare.dto.CustomerDTO;
+import com.homecare.Homecare.dto.EmployeeDTO;
 import com.homecare.Homecare.dto.ProductDTO;
-import com.homecare.Homecare.entity.CustomerEntity;
+import com.homecare.Homecare.entity.EmployeeEntity;
 import com.homecare.Homecare.entity.ProductEntity;
 import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;

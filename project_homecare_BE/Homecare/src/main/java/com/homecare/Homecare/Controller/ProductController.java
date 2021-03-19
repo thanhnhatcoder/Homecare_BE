@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.homecare.Homecare.dto.CustomerDTO;
+import com.homecare.Homecare.dto.EmployeeDTO;
 import com.homecare.Homecare.dto.ProductDTO;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.service.ProductService;
@@ -20,6 +20,7 @@ import com.homecare.Homecare.service.ProductService;
 public class ProductController {
 @Autowired
 private ProductService productService ;
+
 
 @GetMapping("/product")
 public SuccessResponse<ProductDTO> findAll(){

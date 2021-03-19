@@ -1,5 +1,6 @@
 package com.homecare.Homecare.entity;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,26 +18,29 @@ import lombok.Setter;
 @Getter
 @Setter
 @Component
-@Document(collection = "customer")
-public class CustomerEntity {
+@Document(collection = "employee")
+public class EmployeeEntity {
 	@Id
-	private String id;
+	private String id ;
 	@NotBlank
-	private String name;
-	
+	private String name ;
 	@NotBlank
-	private String phone;
-	
+	private String phone ;
 	@NotBlank
-	@Email
-	private String email;
-	
+	private String email ;
 	@NotBlank
-	private String gender;
-	
+	private String province ;
 	@NotBlank
-	private String password;
-	
-	@DBRef
-	  private Set<Role> roles = new HashSet<>();
+	private String city ;
+	@NotBlank
+	private String department ;
+	@NotBlank
+	private Date birthday;
+	@NotBlank
+	private Date daytowork;
+	@NotBlank
+	private String gender ;
+	@NotBlank
+	private String image ;
 }
+

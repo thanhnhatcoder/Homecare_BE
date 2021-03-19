@@ -1,9 +1,14 @@
 package com.homecare.Homecare.service;
 
 import java.util.Optional;
+import java.util.Properties;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +19,6 @@ import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.repository.BookingRepository;
-import com.homecare.Homecare.repository.ComboRepository;
 
 @Service
 public class BookingService {
@@ -45,8 +49,8 @@ public class BookingService {
 			bookingConvert.entityToDTO(bookingRepository.save(bookingEntity));
 		}
 		return new SuccessResponse();
-	}
-
+	} 
+	
 	@Transactional
 	public SuccessResponse save(BookingDTO bookingDTO) {
 		BookingEntity bookingEntity = new BookingEntity();
@@ -65,10 +69,11 @@ public class BookingService {
 			bookingEntity.setProvince(bookingDTO.getProvince());
 			bookingEntity.setService(bookingDTO.getService());
 			bookingRepository.save(bookingEntity);
-
+			
 		SuccessResponse successResponse = new SuccessResponse();
 		successResponse.setCode(201);
 		return successResponse ;
+		
 	}
 
 	public SuccessResponse findById(String idBooking) {
