@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,11 @@ public class BookingService {
 	private BookingRepository bookingRepository;
 	@Autowired
 	private BookingConvert bookingConvert;
-
+	private JavaMailSender javaMailSender;
+	@Autowired
+	public BookingService(JavaMailSender javaMailSender) {
+		this.javaMailSender = javaMailSender;
+	}
 	@Transactional
 	public SuccessResponse edit(BookingDTO bookingDTO) {
 		if (this.findById(bookingDTO.getId()) == null)
@@ -68,11 +73,17 @@ public class BookingService {
 			bookingEntity.setProduct(bookingDTO.getProduct());
 			bookingEntity.setProvince(bookingDTO.getProvince());
 			bookingEntity.setService(bookingDTO.getService());
-			bookingRepository.save(bookingEntity);
+
+			SimpleMailMessage mail = new SimpleMailMessage();
 			
-		SuccessResponse successResponse = new SuccessResponse();
-		successResponse.setCode(201);
-		return successResponse ;
+			mail.setTo(bookingDTO.getEmail());
+			mail.setSubject("Đặt lịch thành công tại !");
+			mail.setText("Bạn đã đặt lịch sửa chữa thiết bị tại Homecare vào " + bookingDTO.getDate().toString() + " ! Vui lòng giữ thiết bị để nhân viên sửa chữa có thể liên hệ ");
+			javaMailSender.send(mail);
+			bookingRepository.save(bookingEntity);
+			SuccessResponse successResponse = new SuccessResponse();
+			successResponse.setCode(201);
+			return successResponse ;
 		
 	}
 
