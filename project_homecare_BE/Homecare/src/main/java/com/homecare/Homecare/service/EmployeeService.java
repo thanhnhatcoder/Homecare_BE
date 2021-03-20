@@ -38,7 +38,7 @@ public class EmployeeService {
 		employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 		employeeEntity.setDepartment(employeeDTO.getDepartment());
 		employeeEntity.setImage(employeeDTO.getImage());
-		employeeEntity.setProvince(employeeDTO.getProvince());
+		employeeEntity.setAddress(employeeDTO.getAddress());
 		employeeEntity.setGender(employeeDTO.getGender());
 		employeeEntity.setEmail(employeeDTO.getEmail());
 		employeeConvert.entitytoDTO(employeeRepository.save(employeeEntity));
@@ -62,7 +62,7 @@ public class EmployeeService {
 			employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 			employeeEntity.setDepartment(employeeDTO.getDepartment());
 			employeeEntity.setImage(employeeDTO.getImage());
-			employeeEntity.setProvince(employeeDTO.getProvince());
+			employeeEntity.setAddress(employeeDTO.getAddress());
 			employeeEntity.setGender(employeeDTO.getGender());
 			employeeEntity.setEmail(employeeDTO.getEmail());
 	        employeeRepository.save(employeeEntity);

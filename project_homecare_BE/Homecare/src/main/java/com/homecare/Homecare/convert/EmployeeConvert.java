@@ -19,7 +19,7 @@ public class EmployeeConvert {
 		employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 		employeeEntity.setDepartment(employeeDTO.getDepartment());
 		employeeEntity.setImage(employeeDTO.getImage());
-		employeeEntity.setProvince(employeeDTO.getProvince());
+		employeeEntity.setAddress(employeeDTO.getAddress());
 		employeeEntity.setGender(employeeDTO.getGender());
 		employeeEntity.setEmail(employeeDTO.getEmail());
 		return employeeEntity ;
@@ -34,7 +34,7 @@ public class EmployeeConvert {
 		employeeDTO.setDaytowork(employeeEntity.getDaytowork());
 		employeeDTO.setDepartment(employeeEntity.getDepartment());
 		employeeDTO.setImage(employeeEntity.getImage());
-		employeeDTO.setProvince(employeeEntity.getProvince());
+		employeeDTO.setAddress(employeeEntity.getAddress());
 		employeeDTO.setGender(employeeEntity.getGender());
 		employeeDTO.setEmail(employeeEntity.getEmail());
 		return employeeDTO ;

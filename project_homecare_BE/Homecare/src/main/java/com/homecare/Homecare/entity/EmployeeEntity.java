@@ -29,7 +29,7 @@ public class EmployeeEntity {
 	@NotBlank
 	private String email ;
 	@NotBlank
-	private String province ;
+	private String address ;
 	@NotBlank
 	private String city ;
 	@NotBlank

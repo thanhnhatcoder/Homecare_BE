@@ -18,7 +18,7 @@ public class EmployeeDTO {
 	private String name ;
 	private String phone ;
 	private String email ;
-	private String province ;
+	private String address ;
 	private String city ;
 	private String department ;
 	private Date birthday;
