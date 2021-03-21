@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.homecare.Homecare.convert.ProductConvert;
 import com.homecare.Homecare.dto.EmployeeDTO;
 import com.homecare.Homecare.dto.ProductDTO;
+import com.homecare.Homecare.entity.BrandEntity;
 import com.homecare.Homecare.entity.EmployeeEntity;
 import com.homecare.Homecare.entity.ProductEntity;
 import com.homecare.Homecare.exception.BadRequestException;
@@ -39,7 +40,18 @@ public class ProductService {
 		}
 		return new SuccessResponse();
 	}
+	@Transactional
+	 public SuccessResponse deleteProduct(String productId) {
+	        Optional<ProductEntity> productEntityOptional = this.productRepository.findById(productId);
+	        if (!productEntityOptional.isPresent()) {
+	            throw new NotFoundException("Profile");
+	        }
 
+	        this.productRepository.deleteById(productId);
+
+	        return new SuccessResponse();
+	    }
+	
 	@Transactional
 	public SuccessResponse save(ProductDTO productDTO) {
 		ProductEntity productEntity = new ProductEntity();

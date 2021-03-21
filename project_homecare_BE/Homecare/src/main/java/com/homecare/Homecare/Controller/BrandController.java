@@ -1,6 +1,7 @@
 package com.homecare.Homecare.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +37,10 @@ public SuccessResponse addBrand(@RequestBody BrandDTO brandDTO) {
 @PutMapping("/{id}/edit/brand")
 public SuccessResponse edit(@RequestBody BrandDTO brandDTO) {
     return this.brandService.edit(brandDTO);
+}
+
+@DeleteMapping("/brand/{id}")
+public SuccessResponse deleteBrand(@PathVariable("idBrand") String idBrand) {
+    return this.brandService.deleteBrand(idBrand);
 }
 }

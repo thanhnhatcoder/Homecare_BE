@@ -34,7 +34,7 @@ public SuccessResponse<BookingDTO> findById(@PathVariable String id){
 	return bookingService.findById(id) ;
 }
 @PostMapping("/add/booking")
-public SuccessResponse addBrand(@RequestBody BookingDTO bookingDTO) {
+public SuccessResponse addBooking(@RequestBody BookingDTO bookingDTO) {
 	notificationService.sendEmail(bookingDTO.getEmail()) ;
 	return this.bookingService.save(bookingDTO) ;
 }	

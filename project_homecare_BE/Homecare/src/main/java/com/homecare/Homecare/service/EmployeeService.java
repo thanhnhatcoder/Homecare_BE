@@ -1,7 +1,10 @@
 package com.homecare.Homecare.service;
 
+import java.util.List;
+
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,7 @@ import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.repository.EmployeeRepository;
+
 
 @Service
 public class EmployeeService {
@@ -45,6 +49,18 @@ public class EmployeeService {
 	}
 		return new SuccessResponse();
 	}
+	@Transactional
+	 public SuccessResponse deleteEmployee(String employeeId) {
+	        Optional<EmployeeEntity> employeeEntityOptional = this.employeeRepository.findById(employeeId);
+	        if (!employeeEntityOptional.isPresent()) {
+	            throw new NotFoundException("Profile");
+	        }
+
+	        this.employeeRepository.deleteById(employeeId);
+
+	        return new SuccessResponse();
+	    }
+	
 	@Transactional
 	public SuccessResponse save(EmployeeDTO employeeDTO) {
 	    EmployeeEntity employeeEntity = new EmployeeEntity();

@@ -2,6 +2,7 @@ package com.homecare.Homecare.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,8 +35,14 @@ public SuccessResponse<ProductDTO> findById(@PathVariable String id){
 public SuccessResponse addProduct(@RequestBody ProductDTO productDTO) {
 	return this.productService.save(productDTO) ;
 }
+
+
 @PutMapping("/{id}/edit/product")
 public SuccessResponse edit(@RequestBody ProductDTO productDTO) {
     return this.productService.edit(productDTO);
+}
+@DeleteMapping("/product/{id}")
+public SuccessResponse deleteBrand(@PathVariable("idProduct") String idProduct) {
+    return this.productService.deleteProduct(idProduct);
 }
 }

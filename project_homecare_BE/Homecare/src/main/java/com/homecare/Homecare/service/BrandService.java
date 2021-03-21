@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.homecare.Homecare.convert.BrandConvert;
 import com.homecare.Homecare.dto.BrandDTO;
 import com.homecare.Homecare.entity.BrandEntity;
+import com.homecare.Homecare.entity.EmployeeEntity;
 import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
@@ -37,6 +38,18 @@ public class BrandService {
 		return new SuccessResponse();
 	}
 
+	@Transactional
+	 public SuccessResponse deleteBrand(String brandId) {
+	        Optional<BrandEntity> brandEntityOptional = this.brandRepository.findById(brandId);
+	        if (!brandEntityOptional.isPresent()) {
+	            throw new NotFoundException("Profile");
+	        }
+
+	        this.brandRepository.deleteById(brandId);
+
+	        return new SuccessResponse();
+	    }
+	
 	@Transactional
 	public SuccessResponse save(BrandDTO brandDTO) {
 		BrandEntity brandEntity = new BrandEntity();
