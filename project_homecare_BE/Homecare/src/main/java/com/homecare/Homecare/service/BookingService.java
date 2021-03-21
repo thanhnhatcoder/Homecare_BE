@@ -75,10 +75,10 @@ public class BookingService {
 			bookingEntity.setService(bookingDTO.getService());
 
 			SimpleMailMessage mail = new SimpleMailMessage();
-			
 			mail.setTo(bookingDTO.getEmail());
 			mail.setSubject("Đặt lịch thành công tại HOMECARE !");
-			mail.setText("Bạn đã đặt lịch sửa chữa thiết bị tại Homecare vào " + bookingDTO.getDate() + " ! Vui lòng giữ thiết bị để nhân viên sửa chữa có thể liên hệ ");
+			mail.setText("Bạn đã đặt lịch sửa chữa thiết bị tại Homecare vào " + bookingDTO.getDate() + " ! Vui lòng giữ thiết bị để"
+					+ " nhân viên sửa chữa có thể liên hệ ");
 			javaMailSender.send(mail);
 			bookingRepository.save(bookingEntity);
 			SuccessResponse successResponse = new SuccessResponse();
