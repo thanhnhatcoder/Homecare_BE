@@ -15,11 +15,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EmployeeDTO {
 	private String id ;
-	private String name ;
+	private String fullName ;
 	private String phone ;
 	private String email ;
 	private String address ;
-	private String city ;
+	private String province ;
 	private String department ;
 	private Date birthday;
 	private Date daytowork;

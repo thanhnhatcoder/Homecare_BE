@@ -12,10 +12,10 @@ public class EmployeeConvert {
 	public EmployeeEntity dtotoEntity(EmployeeDTO employeeDTO) {
 		EmployeeEntity employeeEntity = new EmployeeEntity() ;
 		employeeEntity.setId(employeeDTO.getId());
-		employeeEntity.setName(employeeDTO.getName());
+		employeeEntity.setFullName(employeeDTO.getFullName());
 		employeeEntity.setPhone(employeeDTO.getPhone());
 		employeeEntity.setBirthday(employeeDTO.getBirthday());
-		employeeEntity.setCity(employeeDTO.getCity());
+		employeeEntity.setProvince(employeeDTO.getProvince());
 		employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 		employeeEntity.setDepartment(employeeDTO.getDepartment());
 		employeeEntity.setImage(employeeDTO.getImage());
@@ -27,10 +27,10 @@ public class EmployeeConvert {
 	public EmployeeDTO entitytoDTO(EmployeeEntity employeeEntity) {
 		EmployeeDTO employeeDTO = new EmployeeDTO() ;
 		employeeDTO.setId(employeeEntity.getId());
-		employeeDTO.setName(employeeEntity.getName());
+		employeeDTO.setFullName(employeeEntity.getFullName());
 		employeeDTO.setPhone(employeeEntity.getPhone());
 		employeeDTO.setBirthday(employeeEntity.getBirthday());
-		employeeDTO.setCity(employeeEntity.getCity());
+		employeeDTO.setProvince(employeeEntity.getProvince());
 		employeeDTO.setDaytowork(employeeEntity.getDaytowork());
 		employeeDTO.setDepartment(employeeEntity.getDepartment());
 		employeeDTO.setImage(employeeEntity.getImage());

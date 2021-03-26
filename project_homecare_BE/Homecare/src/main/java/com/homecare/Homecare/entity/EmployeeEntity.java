@@ -23,7 +23,7 @@ public class EmployeeEntity {
 	@Id
 	private String id ;
 	@NotBlank
-	private String name ;
+	private String fullName ;
 	@NotBlank
 	private String phone ;
 	@NotBlank
@@ -31,7 +31,7 @@ public class EmployeeEntity {
 	@NotBlank
 	private String address ;
 	@NotBlank
-	private String city ;
+	private String province ;
 	@NotBlank
 	private String department ;
 	@NotBlank

@@ -27,4 +27,5 @@ private String phone ;
 private String product ;
 private String province ;
 private String service ;
+private String status ;
 }

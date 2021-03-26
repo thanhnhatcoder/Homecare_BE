@@ -35,10 +35,10 @@ public class EmployeeService {
 		{
 		Optional<EmployeeEntity> optionalCustomerEntity = employeeRepository.findById(employeeDTO.getId());
 		EmployeeEntity employeeEntity = optionalCustomerEntity.orElseThrow(() -> new BadRequestException("ID not correct"));
-		employeeEntity.setName(employeeDTO.getName());
+		employeeEntity.setFullName(employeeDTO.getFullName());
 		employeeEntity.setPhone(employeeDTO.getPhone());
 		employeeEntity.setBirthday(employeeDTO.getBirthday());
-		employeeEntity.setCity(employeeDTO.getCity());
+		employeeEntity.setProvince(employeeDTO.getProvince());
 		employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 		employeeEntity.setDepartment(employeeDTO.getDepartment());
 		employeeEntity.setImage(employeeDTO.getImage());
@@ -64,17 +64,17 @@ public class EmployeeService {
 	@Transactional
 	public SuccessResponse save(EmployeeDTO employeeDTO) {
 	    EmployeeEntity employeeEntity = new EmployeeEntity();
-	    if ( employeeDTO.getName() == null ) {
+	    if ( employeeDTO.getFullName() == null ) {
 	        throw new BadRequestException("Invalid input");
 	    }
 	    else {
 	        UUID id = UUID.randomUUID();
 	        employeeDTO.setId(id.toString());
 	        employeeEntity.setId(employeeDTO.getId());
-			employeeEntity.setName(employeeDTO.getName());
+			employeeEntity.setFullName(employeeDTO.getFullName());
 			employeeEntity.setPhone(employeeDTO.getPhone());
 			employeeEntity.setBirthday(employeeDTO.getBirthday());
-			employeeEntity.setCity(employeeDTO.getCity());
+			employeeEntity.setProvince(employeeDTO.getProvince());
 			employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 			employeeEntity.setDepartment(employeeDTO.getDepartment());
 			employeeEntity.setImage(employeeDTO.getImage());
