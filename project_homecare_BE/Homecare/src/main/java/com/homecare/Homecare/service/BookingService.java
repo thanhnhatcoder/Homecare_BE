@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.homecare.Homecare.convert.BookingConvert;
 import com.homecare.Homecare.dto.BookingDTO;
 import com.homecare.Homecare.entity.BookingEntity;
+import com.homecare.Homecare.entity.EmployeeEntity;
 import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
@@ -86,9 +87,28 @@ public class BookingService {
 			return successResponse ;
 		
 	}
+	@Transactional
+	 public SuccessResponse delete(String bookingId) {
+	        Optional<BookingEntity> bookingEntityOptional = this.bookingRepository.findById(bookingId);
+	        if (!bookingEntityOptional.isPresent()) {
+	            throw new NotFoundException("Booking");
+	        }
 
+	        this.bookingRepository.deleteById(bookingId);
+
+	        return new SuccessResponse();
+	    }
+	public SuccessResponse findByEmail(String idEmail) {
+		Optional<BookingEntity> optionalBooking = bookingRepository.findBookingByEmail(idEmail);
+		
+		if (optionalBooking.isPresent()) {
+			return new SuccessResponse(this.bookingConvert.entityToDTO(optionalBooking.get()));
+		}
+		return new SuccessResponse();
+	}
 	public SuccessResponse findById(String idBooking) {
 		Optional<BookingEntity> optionalBooking = bookingRepository.findById(idBooking);
+		
 		if (optionalBooking.isPresent()) {
 			return new SuccessResponse(this.bookingConvert.entityToDTO(optionalBooking.get()));
 		}

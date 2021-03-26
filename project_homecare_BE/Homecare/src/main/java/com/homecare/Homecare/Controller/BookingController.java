@@ -35,14 +35,18 @@ public SuccessResponse<BookingDTO> findAll(){
 public SuccessResponse<BookingDTO> findById(@PathVariable String id){
 	return bookingService.findById(id) ;
 }
-@DeleteMapping("/booking/{idEmployee}")
+@DeleteMapping("/booking/{idBooking}")
 @ResponseBody
-public SuccessResponse deleteEmployee(@PathVariable("idEmployee") String idEmployee) {
-    return this.employeeService.deleteEmployee(idEmployee);
+public SuccessResponse deleteBooking(@PathVariable("idBooking") String idEmployee) {
+    return this.bookingService.delete(idEmployee);
 }
 @PostMapping("/add/booking")
 public SuccessResponse addBooking(@RequestBody BookingDTO bookingDTO) {
 	notificationService.sendEmail(bookingDTO.getEmail()) ;
 	return this.bookingService.save(bookingDTO) ;
-}	
+}
+@GetMapping("booking/em/{email}")
+public SuccessResponse<BookingDTO> findByEmail(@PathVariable String idEmail){
+	return bookingService.findByEmail(idEmail) ;
+}
 }
