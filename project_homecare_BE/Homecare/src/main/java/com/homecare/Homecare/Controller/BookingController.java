@@ -1,5 +1,8 @@
 package com.homecare.Homecare.Controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.homecare.Homecare.dto.BookingDTO;
 import com.homecare.Homecare.dto.BrandDTO;
+import com.homecare.Homecare.entity.BookingEntity;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.service.BookingService;
 import com.homecare.Homecare.service.MailService;
@@ -45,8 +49,8 @@ public SuccessResponse addBooking(@RequestBody BookingDTO bookingDTO) {
 	notificationService.sendEmail(bookingDTO.getEmail()) ;
 	return this.bookingService.save(bookingDTO) ;
 }
-@GetMapping("booking/em/{email}")
-public SuccessResponse<BookingDTO> findByEmail(@PathVariable String idEmail){
-	return bookingService.findByEmail(idEmail) ;
+@GetMapping("booking/email")
+public List<BookingEntity> getAllByEmail(@RequestParam("email") String email){
+	return bookingService.getAllByEmail(email) ;
 }
 }

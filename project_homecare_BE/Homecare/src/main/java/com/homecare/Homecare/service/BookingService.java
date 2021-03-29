@@ -1,5 +1,6 @@
 package com.homecare.Homecare.service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.UUID;
@@ -98,14 +99,7 @@ public class BookingService {
 
 	        return new SuccessResponse();
 	    }
-	public SuccessResponse findByEmail(String idEmail) {
-		Optional<BookingEntity> optionalBooking = bookingRepository.findBookingByEmail(idEmail);
-		
-		if (optionalBooking.isPresent()) {
-			return new SuccessResponse(this.bookingConvert.entityToDTO(optionalBooking.get()));
-		}
-		return new SuccessResponse();
-	}
+	
 	public SuccessResponse findById(String idBooking) {
 		Optional<BookingEntity> optionalBooking = bookingRepository.findById(idBooking);
 		
@@ -119,6 +113,10 @@ public class BookingService {
 		SuccessResponse successResponse = new SuccessResponse();
 		successResponse.setData(bookingRepository.findAll());
 		return successResponse;
+	}
+	
+	public List<BookingEntity> getAllByEmail(String email) {
+		return bookingRepository.findAllByEmail(email);  
 	}
 }
 
