@@ -28,7 +28,6 @@ public class ComboController {
 	}
 	
 	@PutMapping("/{id}/edit/combo")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public SuccessResponse<ComboDTO> edit(@RequestBody ComboDTO comboDTO) {
 	    return this.comboService.edit(comboDTO);
 	} 
@@ -40,7 +39,6 @@ public class ComboController {
 	}
 
 	@PostMapping("/add/combo")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public SuccessResponse save(@RequestBody ComboDTO comboDTO) {
 		return comboService.save(comboDTO);
 	}
