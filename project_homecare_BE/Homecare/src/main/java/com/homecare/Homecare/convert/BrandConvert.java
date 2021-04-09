@@ -12,13 +12,13 @@ public class BrandConvert {
 	public BrandEntity dtoToEntity(BrandDTO brandDTO) {
 		BrandEntity brandEntity = new BrandEntity();
 		brandEntity.setId(brandDTO.getId());
-		brandEntity.setName(brandDTO.getName());
+		brandEntity.setTitle(brandDTO.getTitle());
 		return brandEntity ;
 	} 
 	public BrandDTO entityToDto(BrandEntity brandEntity) {
 		BrandDTO brandDTO = new BrandDTO();
 		brandDTO.setId(brandEntity.getId());
-		brandDTO.setName(brandEntity.getName());
+		brandDTO.setTitle(brandEntity.getTitle());
 		return brandDTO ;
 	}
 }

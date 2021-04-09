@@ -3,12 +3,14 @@ package com.homecare.Homecare.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homecare.Homecare.dto.ComboDTO;
@@ -36,6 +38,11 @@ public class ComboController {
 	public SuccessResponse<ComboDTO> findByID(@PathVariable String id) {
 		return comboService.findById(id);
 
+	}
+	@DeleteMapping("/combo/{id}")
+	@ResponseBody
+	public SuccessResponse deleteBrand(@PathVariable("id") String idCombo) {
+	    return this.comboService.deleteCombo(idCombo);
 	}
 
 	@PostMapping("/add/combo")

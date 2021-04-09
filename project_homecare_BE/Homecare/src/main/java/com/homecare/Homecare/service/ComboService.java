@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.homecare.Homecare.convert.ComboConvert;
 import com.homecare.Homecare.dto.ComboDTO;
+import com.homecare.Homecare.entity.BrandEntity;
 import com.homecare.Homecare.entity.ComboEntity;
 import com.homecare.Homecare.exception.BadRequestException;
 import com.homecare.Homecare.exception.NotFoundException;
@@ -75,4 +76,16 @@ public class ComboService {
 		successResponse.setData(comboRepository.findAll());
 		return successResponse;
 	}
-}
+
+		@Transactional
+		 public SuccessResponse deleteCombo(String idCombo) {
+		        Optional<ComboEntity> comboEntityOptional = this.comboRepository.findById(idCombo);
+		        if (!comboEntityOptional.isPresent()) {
+		            throw new NotFoundException("Combo");
+		        }
+
+		        this.comboRepository.deleteById(idCombo);
+
+		        return new SuccessResponse();
+		    }
+	}

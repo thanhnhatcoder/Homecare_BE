@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homecare.Homecare.dto.BrandDTO;
@@ -19,28 +20,32 @@ import com.homecare.Homecare.service.ProductService;
 @RestController
 @RequestMapping("/api/v1")
 public class BrandController {
-@Autowired
-private BrandService brandService ;
+	@Autowired
+	private BrandService brandService;
 
-@GetMapping("/brand")
-public SuccessResponse<BrandDTO> findAll(){
-	return brandService.findAllBrand();
-}
-@GetMapping("/brand/{id}")
-public SuccessResponse<BrandDTO> findById(@PathVariable String id){
-	return brandService.findById(id) ;
-}
-@PostMapping("/add/brand")
-public SuccessResponse addBrand(@RequestBody BrandDTO brandDTO) {
-	return this.brandService.save(brandDTO) ;
+	@GetMapping("/brand")
+	public SuccessResponse<BrandDTO> findAll() {
+		return brandService.findAllBrand();
+	}
+
+	@GetMapping("/brand/{id}")
+	public SuccessResponse<BrandDTO> findById(@PathVariable String id) {
+		return brandService.findById(id);
+	}
+
+	@PostMapping("/add/brand")
+	public SuccessResponse addBrand(@RequestBody BrandDTO brandDTO) {
+		return this.brandService.save(brandDTO);
+	}
+
+@DeleteMapping("/brand/{idBrand}")
+@ResponseBody
+public SuccessResponse deleteBrand(@PathVariable("idBrand") String idBrand) {
+    return this.brandService.deleteBrand(idBrand);
 }
 @PutMapping("/{id}/edit/brand")
 public SuccessResponse edit(@RequestBody BrandDTO brandDTO) {
     return this.brandService.edit(brandDTO);
 }
 
-@DeleteMapping("/brand/{id}")
-public SuccessResponse deleteBrand(@PathVariable("idBrand") String idBrand) {
-    return this.brandService.deleteBrand(idBrand);
-}
 }
