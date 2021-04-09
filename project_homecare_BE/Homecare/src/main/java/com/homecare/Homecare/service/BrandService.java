@@ -32,7 +32,7 @@ public class BrandService {
 			Optional<BrandEntity> optionalBrandEntity = brandRepository.findById(brandDTO.getId());
 			BrandEntity brandEntity = optionalBrandEntity
 					.orElseThrow(() -> new BadRequestException("id not correct"));
-			brandEntity.setName(brandDTO.getName());
+			brandEntity.setTitle(brandDTO.getTitle());
 			brandConvert.entityToDto(brandRepository.save(brandEntity));
 		}
 		return new SuccessResponse();
@@ -53,13 +53,13 @@ public class BrandService {
 	@Transactional
 	public SuccessResponse save(BrandDTO brandDTO) {
 		BrandEntity brandEntity = new BrandEntity();
-		if (brandDTO.getName() == null)
+		if (brandDTO.getTitle() == null)
 			throw new BadRequestException("Invalid Input");
 		else {
 			UUID id = UUID.randomUUID();
 			brandDTO.setId(id.toString());
 			brandEntity.setId(brandDTO.getId());
-			brandEntity.setName(brandDTO.getName());
+			brandEntity.setTitle(brandDTO.getTitle());
 			brandEntity = brandConvert.dtoToEntity(brandDTO);
 			brandRepository.save(brandEntity);
 

@@ -19,5 +19,5 @@ public class ProductEntity {
 	@Id
 	private String id ; 
 	@NotBlank
-	private String name ;
+	private String title ;
 }

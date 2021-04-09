@@ -35,7 +35,7 @@ public class ProductService {
 			Optional<ProductEntity> optionalProductEntity = productRepository.findById(productDTO.getId());
 			ProductEntity productEntity = optionalProductEntity
 					.orElseThrow(() -> new BadRequestException("id not correct"));
-			productEntity.setName(productDTO.getName());
+			productEntity.setTitle(productDTO.getTitle());
 			productConvert.entityToDto(productRepository.save(productEntity));
 		}
 		return new SuccessResponse();
@@ -55,13 +55,13 @@ public class ProductService {
 	@Transactional
 	public SuccessResponse save(ProductDTO productDTO) {
 		ProductEntity productEntity = new ProductEntity();
-		if (productDTO.getName() == null)
+		if (productDTO.getTitle() == null)
 			throw new BadRequestException("Invalid Input");
 		else {
 			UUID id = UUID.randomUUID();
 			productDTO.setId(id.toString());
 			productEntity.setId(productDTO.getId());
-			productEntity.setName(productDTO.getName());
+			productEntity.setTitle(productDTO.getTitle());
 			productEntity = productConvert.dtoToEntity(productDTO);
 			productRepository.save(productEntity);
 
