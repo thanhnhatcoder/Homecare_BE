@@ -83,9 +83,7 @@ public class ComboService {
 		        if (!comboEntityOptional.isPresent()) {
 		            throw new NotFoundException("Combo");
 		        }
-
 		        this.comboRepository.deleteById(idCombo);
-
 		        return new SuccessResponse();
 		    }
 	}
