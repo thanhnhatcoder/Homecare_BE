@@ -17,6 +17,8 @@ public class EmployeeDTO {
 	private String id ;
 	private String fullName ;
 	private String phone ;
+	private double salary;
+	private String indentity;
 	private String email ;
 	private String address ;
 	private String province ;

@@ -41,6 +41,8 @@ public class EmployeeService {
 		employeeEntity.setProvince(employeeDTO.getProvince());
 		employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 		employeeEntity.setDepartment(employeeDTO.getDepartment());
+		employeeEntity.setIndentity(employeeDTO.getIndentity());
+		employeeEntity.setSalary(employeeDTO.getSalary());
 		employeeEntity.setImage(employeeDTO.getImage());
 		employeeEntity.setAddress(employeeDTO.getAddress());
 		employeeEntity.setGender(employeeDTO.getGender());
@@ -77,6 +79,8 @@ public class EmployeeService {
 			employeeEntity.setProvince(employeeDTO.getProvince());
 			employeeEntity.setDaytowork(employeeDTO.getDaytowork());
 			employeeEntity.setDepartment(employeeDTO.getDepartment());
+			employeeEntity.setIndentity(employeeDTO.getIndentity());
+			employeeEntity.setSalary(employeeDTO.getSalary());
 			employeeEntity.setImage(employeeDTO.getImage());
 			employeeEntity.setAddress(employeeDTO.getAddress());
 			employeeEntity.setGender(employeeDTO.getGender());

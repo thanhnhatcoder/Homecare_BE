@@ -31,6 +31,10 @@ public class EmployeeEntity {
 	@NotBlank
 	private String address ;
 	@NotBlank
+	private String indentity;
+	@NotBlank
+	private double salary ;
+	@NotBlank
 	private String province ;
 	@NotBlank
 	private String department ;

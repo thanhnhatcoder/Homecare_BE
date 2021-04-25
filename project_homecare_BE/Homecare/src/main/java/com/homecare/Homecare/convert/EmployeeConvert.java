@@ -17,6 +17,8 @@ public class EmployeeConvert {
 		employeeEntity.setBirthday(employeeDTO.getBirthday());
 		employeeEntity.setProvince(employeeDTO.getProvince());
 		employeeEntity.setDaytowork(employeeDTO.getDaytowork());
+		employeeEntity.setIndentity(employeeDTO.getIndentity());
+		employeeEntity.setSalary(employeeDTO.getSalary());
 		employeeEntity.setDepartment(employeeDTO.getDepartment());
 		employeeEntity.setImage(employeeDTO.getImage());
 		employeeEntity.setAddress(employeeDTO.getAddress());
@@ -27,6 +29,8 @@ public class EmployeeConvert {
 	public EmployeeDTO entitytoDTO(EmployeeEntity employeeEntity) {
 		EmployeeDTO employeeDTO = new EmployeeDTO() ;
 		employeeDTO.setId(employeeEntity.getId());
+		employeeDTO.setSalary(employeeEntity.getSalary());
+		employeeDTO.setIndentity(employeeEntity.getIndentity());
 		employeeDTO.setFullName(employeeEntity.getFullName());
 		employeeDTO.setPhone(employeeEntity.getPhone());
 		employeeDTO.setBirthday(employeeEntity.getBirthday());
