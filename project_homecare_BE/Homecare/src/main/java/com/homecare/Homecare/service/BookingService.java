@@ -1,5 +1,6 @@
 package com.homecare.Homecare.service;
 
+import java.awt.color.ICC_ColorSpace;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -76,6 +77,7 @@ public class BookingService {
 			bookingEntity.setProvince(bookingDTO.getProvince());
 			bookingEntity.setService(bookingDTO.getService());
 			bookingEntity.setStatus("Chưa xử lý");
+			bookingEntity.setRate(bookingDTO.getRate());
 			SimpleMailMessage mail = new SimpleMailMessage();
 			mail.setTo(bookingDTO.getEmail());
 			mail.setSubject("Đặt lịch thành công tại HOMECARE !");
@@ -114,7 +116,17 @@ public class BookingService {
 		successResponse.setData(bookingRepository.findAll());
 		return successResponse;
 	}
-	
+	public SuccessResponse addRate(BookingDTO bookingDTO) {
+		if (this.findById(bookingDTO.getId()) == null)
+			throw new NotFoundException("");
+		{
+			Optional<BookingEntity> optionalBookingEntity = bookingRepository.findById(bookingDTO.getId());
+			BookingEntity bookingEntity = optionalBookingEntity.orElseThrow(() -> new BadRequestException("ID not correct"));
+			bookingEntity.setRate(bookingDTO.getRate());
+			bookingConvert.entityToDTO(bookingRepository.save(bookingEntity));
+		}
+		return new SuccessResponse();
+	}
 	public List<BookingEntity> getAllByEmail(String email) {
 		return bookingRepository.findAllByEmail(email);  
 	}

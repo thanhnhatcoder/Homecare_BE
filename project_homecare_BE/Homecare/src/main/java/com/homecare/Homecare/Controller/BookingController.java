@@ -53,4 +53,8 @@ public SuccessResponse addBooking(@RequestBody BookingDTO bookingDTO) {
 public List<BookingEntity> getAllByEmail(@RequestParam("email") String email){
 	return bookingService.getAllByEmail(email) ;
 }
+@PutMapping("/{id}/edit/booking")
+public SuccessResponse edit(@RequestBody BookingDTO bookingDTO) {
+    return this.bookingService.addRate(bookingDTO);
+}
 }

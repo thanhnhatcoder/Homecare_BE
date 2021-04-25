@@ -21,6 +21,7 @@ public class BookingConvert {
 		bookingEntity.setProvince(bookingDTO.getProvince());
 		bookingEntity.setService(bookingDTO.getService());
 		bookingEntity.setStatus(bookingDTO.getStatus());
+		bookingEntity.setRate(bookingDTO.getRate());
 		return bookingEntity ;
 	}
 	public BookingDTO entityToDTO(BookingEntity bookingEntity) {
@@ -36,7 +37,8 @@ public class BookingConvert {
 		bookingDTO.setProduct(bookingEntity.getProduct());
 		bookingDTO.setProvince(bookingEntity.getProvince());
 		bookingDTO.setService(bookingEntity.getService());
-		bookingDTO.setStatus(bookingDTO.getStatus());
+		bookingDTO.setStatus(bookingEntity.getStatus());
+		bookingDTO.setRate(bookingEntity.getRate());
 		return bookingDTO ;
 	}
 }

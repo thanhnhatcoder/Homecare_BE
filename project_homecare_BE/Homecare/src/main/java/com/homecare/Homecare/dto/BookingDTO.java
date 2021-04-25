@@ -21,4 +21,5 @@ public class BookingDTO {
 	private String province ;
 	private String service ;
 	private String status ;
+	private String rate ;
 }
