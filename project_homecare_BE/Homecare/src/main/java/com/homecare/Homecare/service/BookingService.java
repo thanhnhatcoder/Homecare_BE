@@ -75,7 +75,7 @@ public class BookingService {
 			bookingEntity.setProduct(bookingDTO.getProduct());
 			bookingEntity.setProvince(bookingDTO.getProvince());
 			bookingEntity.setService(bookingDTO.getService());
-			bookingEntity.setStatus("Chưa sửa chữa");
+			bookingEntity.setStatus("Chưa xử lý");
 			SimpleMailMessage mail = new SimpleMailMessage();
 			mail.setTo(bookingDTO.getEmail());
 			mail.setSubject("Đặt lịch thành công tại HOMECARE !");
