@@ -61,9 +61,9 @@ public class BookingService {
 	@Transactional
 	public SuccessResponse save(BookingDTO bookingDTO) {
 		BookingEntity bookingEntity = new BookingEntity();
-		
+			
 			UUID id = UUID.randomUUID();
-			bookingDTO.setId(id.toString());
+			bookingDTO.setId(id.toString());	
 			bookingEntity.setAddress(bookingDTO.getAddress());
 			bookingEntity.setBrand(bookingDTO.getBrand());
 			bookingEntity.setDate(bookingDTO.getDate());
@@ -75,7 +75,7 @@ public class BookingService {
 			bookingEntity.setProduct(bookingDTO.getProduct());
 			bookingEntity.setProvince(bookingDTO.getProvince());
 			bookingEntity.setService(bookingDTO.getService());
-			bookingEntity.setStatus(bookingDTO.getStatus());
+			bookingEntity.setStatus("Chưa sửa chữa");
 			SimpleMailMessage mail = new SimpleMailMessage();
 			mail.setTo(bookingDTO.getEmail());
 			mail.setSubject("Đặt lịch thành công tại HOMECARE !");
