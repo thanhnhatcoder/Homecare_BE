@@ -20,7 +20,6 @@ public class BookingEntity {
 private String id ;
 private String address ;
 private String brand ;
-
 @JsonFormat(pattern = "dd/MM/yyyy")
 private Date date ;
 private String description ;
