@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +20,8 @@ public class BookingEntity {
 private String id ;
 private String address ;
 private String brand ;
+
+@JsonFormat(pattern = "dd/MM/yyyy")
 private Date date ;
 private String description ;
 private String district ;
