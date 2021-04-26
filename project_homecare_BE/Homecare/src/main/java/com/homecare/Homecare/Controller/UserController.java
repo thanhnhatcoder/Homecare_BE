@@ -2,9 +2,13 @@ package com.homecare.Homecare.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.homecare.Homecare.dto.BrandDTO;
 import com.homecare.Homecare.dto.ProductDTO;
 import com.homecare.Homecare.dto.UserDTO;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
@@ -21,5 +25,13 @@ private UserService userService ;
 public SuccessResponse<UserDTO> findAll(){
 	System.out.println("HELLOSsssssssssssssssss");
 	return userService.findAllUser();
+}
+@PutMapping("/{id}/addcombo/user")
+public SuccessResponse edit(@RequestBody UserDTO userDTO) {
+    return this.userService.edit(userDTO);
+}
+@GetMapping("/user/{id}")
+public SuccessResponse<UserDTO> findById(@PathVariable String id){
+	return userService.findById(id) ;
 }
 }
