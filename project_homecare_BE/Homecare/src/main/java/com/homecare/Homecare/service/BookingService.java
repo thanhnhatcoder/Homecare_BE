@@ -54,6 +54,7 @@ public class BookingService {
 			bookingEntity.setProduct(bookingDTO.getProduct());
 			bookingEntity.setProvince(bookingDTO.getProvince());
 			bookingEntity.setService(bookingDTO.getService());
+			bookingEntity.setStatus(bookingDTO.getStatus());
 			bookingConvert.entityToDTO(bookingRepository.save(bookingEntity));
 		}
 		return new SuccessResponse();

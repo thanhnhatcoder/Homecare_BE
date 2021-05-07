@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ import com.homecare.Homecare.entity.BookingEntity;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.service.BookingService;
 import com.homecare.Homecare.service.MailService;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/v1")
 public class BookingController {

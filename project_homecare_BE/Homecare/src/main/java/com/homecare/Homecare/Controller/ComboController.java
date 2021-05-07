@@ -17,7 +17,7 @@ import com.homecare.Homecare.dto.ComboDTO;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.service.ComboService;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/v1")
 public class ComboController {

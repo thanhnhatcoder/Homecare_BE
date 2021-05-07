@@ -2,6 +2,7 @@ package com.homecare.Homecare.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +11,7 @@ import com.homecare.Homecare.service.MailService;
 
 
 
-
+@CrossOrigin(origins = "*")
 @RestController
 public class SendController {
 
