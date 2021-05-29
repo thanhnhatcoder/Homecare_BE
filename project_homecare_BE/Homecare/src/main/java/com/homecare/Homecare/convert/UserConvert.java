@@ -2,9 +2,7 @@ package com.homecare.Homecare.convert;
 
 import org.springframework.stereotype.Component;
 
-import com.homecare.Homecare.dto.ProductDTO;
 import com.homecare.Homecare.dto.UserDTO;
-import com.homecare.Homecare.entity.ProductEntity;
 import com.homecare.Homecare.entity.UserEntity;
 
 

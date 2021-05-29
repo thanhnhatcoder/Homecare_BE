@@ -2,6 +2,7 @@ package com.homecare.Homecare.entity;
 
 import java.util.Date;
 
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -20,7 +21,7 @@ public class BookingEntity {
 private String id ;
 private String address ;
 private String brand ;
-@JsonFormat(pattern = "dd/MM/yyyy")
+//@JsonFormat(pattern = "dd/MM/yyyy")
 private Date date ;
 private String description ;
 private String district ;

@@ -2,11 +2,15 @@ package com.homecare.Homecare.dto;
 
 import java.util.Date;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
+
+
 @Setter
 @Getter
+
 public class BookingDTO {
 	private String id ;
 	private String address ;

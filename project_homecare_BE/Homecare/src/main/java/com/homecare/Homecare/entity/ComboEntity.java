@@ -21,7 +21,7 @@ import lombok.Setter;
 public class ComboEntity {
 
 	@Id
-	private String id ;
+	private String id ; 
 	
 	@NotBlank
 	private String name;
