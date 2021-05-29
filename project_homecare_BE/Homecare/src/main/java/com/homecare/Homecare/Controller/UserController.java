@@ -1,6 +1,7 @@
 package com.homecare.Homecare.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,7 +15,7 @@ import com.homecare.Homecare.dto.UserDTO;
 import com.homecare.Homecare.reponse.success.SuccessResponse;
 import com.homecare.Homecare.service.ProductService;
 import com.homecare.Homecare.service.UserService;
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
@@ -35,3 +36,4 @@ public SuccessResponse<UserDTO> findById(@PathVariable String id){
 	return userService.findById(id) ;
 }
 }
+// show lỗi cros anh xem
