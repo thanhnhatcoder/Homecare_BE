@@ -11,6 +11,7 @@ import com.homecare.Homecare.convert.BrandConvert;
 import com.homecare.Homecare.convert.UserConvert;
 import com.homecare.Homecare.dto.BrandDTO;
 import com.homecare.Homecare.dto.UserDTO;
+import com.homecare.Homecare.entity.EmployeeEntity;
 import com.homecare.Homecare.entity.UserEntity;
 import com.homecare.Homecare.entity.UserEntity;
 import com.homecare.Homecare.exception.BadRequestException;
@@ -72,4 +73,16 @@ public class UserService {
 		}
 		return new SuccessResponse();
 	}
+
+	@Transactional
+	 public SuccessResponse deleteUser(String idUser) {
+	        Optional<UserEntity> userEntityOptional = this.userRepository.findById(idUser);
+	        if (!userEntityOptional.isPresent()) {
+	            throw new NotFoundException("Profile");
+	        }
+
+	        this.userRepository.deleteById(idUser);
+
+	        return new SuccessResponse();
+	    }
 }

@@ -2,11 +2,13 @@ package com.homecare.Homecare.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.homecare.Homecare.dto.BrandDTO;
@@ -34,6 +36,11 @@ public SuccessResponse edit(@RequestBody UserDTO userDTO) {
 @GetMapping("/user/{id}")
 public SuccessResponse<UserDTO> findById(@PathVariable String id){
 	return userService.findById(id) ;
+}
+@DeleteMapping("/user/{idUser}")
+@ResponseBody
+public SuccessResponse deleteEmployee(@PathVariable("idUser") String idUser) {
+    return this.userService.deleteUser(idUser);
 }
 }
 // show lỗi cros anh xem
